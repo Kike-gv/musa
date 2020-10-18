@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Gradient from './components/Gradient'
+
 function App() {
   return (
     <div className="App">
-      hola
+      <Gradient />
     </div>
   );
 }
