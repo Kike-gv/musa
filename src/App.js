@@ -1,12 +1,15 @@
 import React from 'react';
 
+import { ThemeProvider } from 'styled-components'
+import theme from './theme'
+
 import Gradient from './components/Gradient'
 
 function App() {
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
       <Gradient />
-    </div>
+    </ThemeProvider>
   );
 }
 
