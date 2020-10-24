@@ -1,4 +1,5 @@
-![Musa Logo](./public/images/musaHeader.jpg)
+![Musa Logo](musa_web\public\images\musaHeader.JPG)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
