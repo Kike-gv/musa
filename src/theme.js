@@ -8,5 +8,15 @@ export default {
         themeGrad4: 'rgba(255, 255, 255, 0)',
         blue1: '#020b30',
         blue2: '#00527f',
+
+        text1: '#383838',
     },
+    fontSizes: {
+        extraSmall: '0.75rem',
+        small: '0.875rem',
+        medium: '1rem',
+        large: '1.125rem',
+
+        titleMedium: '2rem',
+    }
 }

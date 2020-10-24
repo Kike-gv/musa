@@ -6,6 +6,7 @@ import theme from './theme';
 import Gradient from './components/Gradient';
 import Menu from './components/Menu';
 import DescriptionText from './components/DescriptionText';
+import Timeline from './components/Timeline';
 
 import MusaIcon from './icons/MusaIcon';
 
@@ -17,6 +18,8 @@ function App() {
         <MusaIcon size={18} />
         <DescriptionText />
       </Gradient>
+      
+      <Timeline />
 
     </ThemeProvider>
   );
