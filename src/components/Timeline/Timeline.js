@@ -60,6 +60,17 @@ font-weight: 500;
 color: ${props => props.theme.colors.text1};
 `;
 
+const Bullet = styled.div`
+width: 6px;
+height: 6px;
+border-radius: 100%;
+background-color: ${props => props.theme.colors.blue2};
+position: absolute;
+left: -2px;
+top: 0.315rem;
+
+`;
+
 
 
 
@@ -80,7 +91,7 @@ const Timeline = () => {
                         {item.left && <Company>{item.company}</Company>}
                         {item.left && <JobPosition>{item.jobPosition}</JobPosition>}
                     </ItemLeftPart>
-                    <ItemCenterPart />
+                    <ItemCenterPart> <Bullet /></ItemCenterPart>
                     <ItemRightPart>
                         {!item.left && <Date>{item.date}</Date>}
                         {!item.left && <Company>{item.company}</Company>}
