@@ -10,6 +10,7 @@ export default {
         blue2: '#00527f',
 
         text1: '#383838',
+        textInverse: '#ffffff',
     },
     fontSizes: {
         extraSmall: '0.75rem',

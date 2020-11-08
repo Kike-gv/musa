@@ -18,7 +18,7 @@ font-weight: bold;
 
 const MenuLink = styled.a`
 text-decoration: none;
-color: ${props => props.theme.colors.white};
+color: ${props => props.theme.colors.textInverse};
 opacity: 0.9;
 &:hover{
     opacity: 0.8;
