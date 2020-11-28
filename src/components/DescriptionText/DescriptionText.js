@@ -11,11 +11,12 @@ align-items: center;
 `;
 const Text1 = styled.p`
 color: ${props => props.theme.colors.themeGrad1};
-font-size: 1rem;
+font-size: ${props => props.theme.fontSizes.large};
+font-weight: bold;
 `;
 const Text2 = styled.p`
 color: ${props => props.theme.colors.themeGrad1};
-font-size: 2rem;
+font-size: ${props => props.theme.fontSizes.titleMedium};
 font-weight: bold;
 `;
 
