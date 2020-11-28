@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Gradient from '../Gradient';
@@ -10,29 +10,122 @@ const ContactUsWrapper = styled.div`
     justify-content:center;
     width: 100vw;
 `;
+
 const ContactUsComponent = styled.div`
     height: 50rem;
     width: 75vw;
-    max-width: 65rem;
+    max-width: 45rem;
 `;
 const GridPart = styled.div`
 display: flex;
 justify-content: center;
 flex-wrap: wrap;
 `;
+
 const Part = styled.div`
 width: 50%;
 padding: 1rem;
 `;
-const Title = styled.p``;
-const Text = styled.p``;
+const PartColumn = styled.div`
+width: 50%;
+padding: 1rem;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+`;
+const PartInner = styled.div``;
+
+const RRSSWrapper = styled.div`
+padding: 1rem 0;
+`;
+
+const Title = styled.p`
+font-size: ${props => props.theme.fontSizes.titleExtraSmall};
+font-weight: bold;
+color: ${props => props.theme.colors.textInverse2};
+margin-bottom: 1rem;
+`;
+
+const Text = styled.p`
+font-size: ${props => props.theme.fontSizes.medium};
+line-height: 1.5;
+color: ${props => props.theme.colors.text1};
+margin-bottom: 1rem;
+`;
+
+const FlexLineBetween = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 1rem;
+`;
+
+const InputHalf = styled.input`
+width: 49%;
+padding: 1rem;
+border: none;
+`;
+
+const InputFull = styled.input`
+width: 100%;
+margin-bottom: 1rem;
+padding: 1rem;
+border: none;
+`;
+
+const Textarea = styled.textarea`
+width: 100%;
+margin-bottom: 1rem;
+padding: 1rem;
+border: none;
+`;
+
+const SendButton = styled.button`
+width: 100%;
+padding: 1rem;
+border: none;
+background-color: ${props => props.theme.colors.black};
+color: ${props => props.theme.colors.white};
+opacity: 0.9;
+letter-spacing: 3px;
+font-size: ${props => props.theme.fontSizes.large};
+font-weight: bold;
+&:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+&:active {
+    opacity: 1;
+}
+`;
 
 const ContactUs = () => {
+    const [input1Response, setinput1Response] = useState();
+    const [input2Response, setinput2Response] = useState();
+    const [input3Response, setinput3Response] = useState();
+    const [input4Response, setinput4Response] = useState();
+
+    const sendMail = () => {
+        // window.location = `mailto:musa.inspiram@gmail.com&subject=${input3Response}&body=${input4Response}`;
+
+        const link = "mailto:" + contactUsInfo.emailAdmin
+            + "&subject=" + encodeURIComponent(input3Response)
+            + "&body=" + encodeURIComponent(input4Response)
+            ;
+
+        window.location.href = link;
+    }
 
     const contactUsInfo = {
-        title: 'Contacto',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget commodo quam. Sed ex eros, ornare id arcu a, gravida efficitur ante. Proin ornare id magna et elementum. Sed non lacinia dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin vestibulum massa eu enim semper feugiat. Nullam accumsan est in orci pellentesque, sit amet pellentesque ex ultrices.',
-
+        title: 'CONTACTO',
+        text: '¡Ponte en contacto con nosotrxs para hablar de lo que tu marca y/o negocio necesita!',
+        text2: 'La creatividad hará el resto :)',
+        input1Text: 'Nombre',
+        input2Text: 'Email',
+        input3Text: 'Asunto',
+        input4Text: 'Mensaje',
+        sendButtonText: '¡Vamos!',
+        emailAdmin: 'musa.inspiram@gmail.com'
     };
 
     return (
@@ -40,12 +133,30 @@ const ContactUs = () => {
             <ContactUsComponent>
                 <Gradient direction={'360deg'}>
                     <GridPart>
+
+                        <PartColumn>
+                            <PartInner>
+                                <Title>{contactUsInfo.title}</Title>
+                                <Text>{contactUsInfo.text}</Text>
+                                <Text>{contactUsInfo.text2}</Text>
+                            </PartInner>
+                            <RRSSWrapper>
+                                <RRSS />
+                            </RRSSWrapper>
+                        </PartColumn>
+
                         <Part>
-                            <Title>{contactUsInfo.title}</Title>
-                            <Text>{contactUsInfo.text}</Text>
-                            <RRSS />
+                            <FlexLineBetween>
+                                <InputHalf placeholder={contactUsInfo.input1Text} onChange={event => setinput1Response(event.target.value)} />
+                                <InputHalf placeholder={contactUsInfo.input2Text} onChange={event => setinput2Response(event.target.value)} />
+                            </FlexLineBetween>
+                            <InputFull placeholder={contactUsInfo.input3Text} onChange={event => setinput3Response(event.target.value)} />
+
+                            <Textarea placeholder={contactUsInfo.input4Text} rows="8" onChange={event => setinput4Response(event.target.value)} />
+
+                            <SendButton type="button" onclick={() => sendMail()} >{contactUsInfo.sendButtonText} </SendButton>
                         </Part>
-                        <Part></Part>
+
                     </GridPart>
                 </Gradient>
             </ContactUsComponent>

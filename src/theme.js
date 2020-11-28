@@ -11,6 +11,7 @@ export default {
 
         text1: '#383838',
         textInverse: '#ffffff',
+        textInverse2: '#9299b4',
     },
     fontSizes: {
         extraSmall: '0.75rem',
@@ -18,6 +19,7 @@ export default {
         medium: '1rem',
         large: '1.125rem',
 
+        titleExtraSmall: '1.75rem',
         titleMedium: '2rem',
     }
 }
