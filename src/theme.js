@@ -12,6 +12,8 @@ export default {
         text1: '#383838',
         textInverse: '#ffffff',
         textInverse2: '#9299b4',
+
+        border1: '#cccccc',
     },
     fontSizes: {
         extraSmall: '0.75rem',

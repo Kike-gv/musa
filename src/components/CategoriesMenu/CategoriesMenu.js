@@ -13,7 +13,7 @@ const logoSize = '15rem';
 const logoTextSize = 15;
 
 const CategoriesWrapper = styled.div`
-width: 100vw;
+width: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -49,32 +49,32 @@ transition: fill 0.4s;
 };
 `;
 
-const Categories = () => {
+const CategoriesMenu = ({click}) => {
 
     return (
         <CategoriesWrapper>
 
-            <LogoWrapper>
+            <LogoWrapper onClick={() =>click(1)}>
                 <CategoryImg src={require('../../icons/lila1.png')} />
                 <CategoryText><Cat1Text size={logoTextSize} /></CategoryText>   
             </LogoWrapper>
 
-            <LogoWrapper>
+            <LogoWrapper onClick={() =>click(2)}>
                 <CategoryImg src={require('../../icons/turquesa1.png')} />
                 <CategoryText><Cat2Text size={logoTextSize} /></CategoryText>   
             </LogoWrapper>
 
-            <LogoWrapper>
+            <LogoWrapper onClick={() =>click(3)}>
                 <CategoryImg src={require('../../icons/verd1.png')} />
                 <CategoryText><Cat3Text size={logoTextSize} /></CategoryText>   
             </LogoWrapper>
 
-            <LogoWrapper>
+            <LogoWrapper onClick={() =>click(4)}>
                 <CategoryImg src={require('../../icons/groc1.png')} />
                 <CategoryText><Cat4Text size={logoTextSize} /></CategoryText>   
             </LogoWrapper>
 
-            <LogoWrapper>
+            <LogoWrapper onClick={() =>click(5)}>
                 <CategoryImg src={require('../../icons/rosa1.png')} />
                 <CategoryText><Cat5Text size={logoTextSize} /></CategoryText>   
             </LogoWrapper>
@@ -83,4 +83,4 @@ const Categories = () => {
     )
 }
 
-export default Categories;
+export default CategoriesMenu;

@@ -1,0 +1,6 @@
+.slides .slick-prev::before {
+    color: black;
+}
+.slides .slick-next::before {
+    color: black;
+}

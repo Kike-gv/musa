@@ -8,7 +8,7 @@ import RRSS from '../RRSS';
 const ContactUsWrapper = styled.div`
     display: flex;
     justify-content:center;
-    width: 100vw;
+    width: 100%;
 `;
 
 const ContactUsComponent = styled.div`

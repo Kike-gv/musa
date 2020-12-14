@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const TimelineWrapper = styled.div`
-width: 100vw;
+width: 100%;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -15,7 +15,7 @@ const Item = styled.div`
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
-width: 100vw;
+width: 100%;
 `;
 
 const ItemLeftPart = styled.div`
