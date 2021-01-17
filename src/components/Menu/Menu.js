@@ -1,6 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+
 
 const MenuWrapper = styled.ul`
 list-style-type: none;
@@ -16,7 +23,7 @@ padding: 0 1rem;
 font-weight: bold;
 `;
 
-const MenuLink = styled.a`
+const MenuLink = styled.p`
 text-decoration: none;
 color: ${props => props.theme.colors.textInverse};
 opacity: 0.9;
@@ -32,10 +39,11 @@ const Menu = () => {
 
     return (
         <MenuWrapper>
-            <MenuItem><MenuLink href="#">Quiénes somos</MenuLink></MenuItem>
-            <MenuItem><MenuLink href="#">Qué ofrecemos</MenuLink></MenuItem>
-            <MenuItem><MenuLink href="#">Trayectoria</MenuLink></MenuItem>
-            <MenuItem><MenuLink href="#">Contáctanos</MenuLink></MenuItem>
+            <MenuItem><Link to="/"><MenuLink>Inicio</MenuLink></Link></MenuItem>
+            <MenuItem><Link to="/aboutUs"><MenuLink>Quiénes somos</MenuLink></Link></MenuItem>
+            <MenuItem><Link><MenuLink>Qué ofrecemos</MenuLink></Link></MenuItem>
+            <MenuItem><Link><MenuLink>Trayectoria</MenuLink></Link></MenuItem>
+            <MenuItem><Link><MenuLink>Contáctanos</MenuLink></Link></MenuItem>
         </MenuWrapper>
     )
 }
