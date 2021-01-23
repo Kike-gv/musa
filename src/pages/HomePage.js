@@ -1,17 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
+import Gradient from '../components/Gradient';
+import Menu from '../components/Menu';
+import DescriptionText from '../components/DescriptionText';
 import CategoriesMenu from '../components/CategoriesMenu';
-import Timeline from '../components/Timeline';
+// import Timeline from '../components/Timeline';
 import ContactUs from '../components/ContactUs';
 import CategoriesContainer from '../components/CategoriesContainer';
+import Separator from '../components/Separator';
 
 import CatBranding from '../components/CatBranding';
 import CatInspiracion from '../components/CatInspiracion';
+
+import MusaIcon from '../icons/MusaIcon';
+
+import firebase from '../firebase';
 
 
 const HomePage = () => {
 
   const [category, setcategory] = useState(0);
+  const [fireB, setfireB] = useState(0);
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection('times')
+      .onSnapshot((snapshot) => {
+        const recievedData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+
+        setfireB(recievedData);
+      })
+  }, [])
+  console.log("🚀 ~ file: HomePage.js ~ line 35 ~ HomePage ~ fireB", fireB)
 
   const clickOnCategory = (cat = 0) => {
     console.log(`entro en ${cat}`);
@@ -20,6 +44,11 @@ const HomePage = () => {
 
   return (
     <>
+      <Gradient>
+        <Menu />
+        <MusaIcon size={18} />
+        <DescriptionText />
+      </Gradient>
 
       <CategoriesMenu click={clickOnCategory} />
 
@@ -28,8 +57,8 @@ const HomePage = () => {
         {category === 1 && <CatBranding />}
         {category === 5 && <CatInspiracion />}
       </CategoriesContainer>}
-
-      <Timeline />
+      <Separator height={10} />
+      {/* <Timeline /> */}
 
       <ContactUs />
 

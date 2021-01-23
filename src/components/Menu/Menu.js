@@ -39,11 +39,10 @@ const Menu = () => {
 
     return (
         <MenuWrapper>
-            <MenuItem><Link to="/"><MenuLink>Inicio</MenuLink></Link></MenuItem>
             <MenuItem><Link to="/aboutUs"><MenuLink>Quiénes somos</MenuLink></Link></MenuItem>
-            <MenuItem><Link><MenuLink>Qué ofrecemos</MenuLink></Link></MenuItem>
+            <MenuItem><Link to="/"><MenuLink>Qué ofrecemos</MenuLink></Link></MenuItem>
             <MenuItem><Link><MenuLink>Trayectoria</MenuLink></Link></MenuItem>
-            <MenuItem><Link><MenuLink>Contáctanos</MenuLink></Link></MenuItem>
+            <MenuItem><Link to="/"><MenuLink>Contáctanos</MenuLink></Link></MenuItem>
         </MenuWrapper>
     )
 }

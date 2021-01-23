@@ -10,14 +10,18 @@ import {
   Link
 } from "react-router-dom";
 
-import Gradient from './components/Gradient';
-import Menu from './components/Menu';
-import DescriptionText from './components/DescriptionText';
-
-import MusaIcon from './icons/MusaIcon';
+import firebase from './firebase';
 
 import HomePage from './pages/HomePage';
 import AboutUsPage from './pages/AboutUsPage';
+
+
+
+// firebase.firestore().collection('times').add({
+//   title: 'test kike',
+//   time: 13
+// })
+
 
 function App() {
 
@@ -25,12 +29,7 @@ function App() {
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        <Gradient>
-          <Menu />
-          <MusaIcon size={18} />
-          <DescriptionText />
-        </Gradient>
-
+        
         <Switch>
           <Route exact path="/">
             <HomePage />
