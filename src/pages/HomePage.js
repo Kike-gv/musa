@@ -4,7 +4,6 @@ import Gradient from '../components/Gradient';
 import Menu from '../components/Menu';
 import DescriptionText from '../components/DescriptionText';
 import CategoriesMenu from '../components/CategoriesMenu';
-// import Timeline from '../components/Timeline';
 import ContactUs from '../components/ContactUs';
 import CategoriesContainer from '../components/CategoriesContainer';
 import Separator from '../components/Separator';
@@ -34,7 +33,7 @@ const HomePage = () => {
 
         setfireB(recievedData);
       })
-  }, [])
+  }, []) 
   console.log("🚀 ~ file: HomePage.js ~ line 35 ~ HomePage ~ fireB", fireB)
 
   const clickOnCategory = (cat = 0) => {
@@ -58,7 +57,6 @@ const HomePage = () => {
         {category === 5 && <CatInspiracion />}
       </CategoriesContainer>}
       <Separator height={10} />
-      {/* <Timeline /> */}
 
       <ContactUs />
 

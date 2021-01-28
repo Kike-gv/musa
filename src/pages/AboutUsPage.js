@@ -6,6 +6,10 @@ import theme from '../theme';
 import Gradient from '../components/Gradient';
 import Menu from '../components/Menu';
 import DescriptionText from '../components/DescriptionText';
+
+import People from '../components/People';
+import Timeline from '../components/Timeline';
+
 import MusaIcon from '../icons/MusaIcon';
 
 const AboutUsPage = () => {
@@ -24,6 +28,10 @@ const AboutUsPage = () => {
         <MusaIcon size={18} />
         <DescriptionText />
       </Gradient>
+      
+      <People />
+      
+      <Timeline />
 
 
 
