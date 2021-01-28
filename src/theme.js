@@ -10,6 +10,7 @@ export default {
         blue2: '#00527f',
 
         text1: '#383838',
+        text2: '#747474',
         textInverse: '#ffffff',
         textInverse2: '#9299b4',
 

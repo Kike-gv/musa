@@ -7,6 +7,7 @@ import Gradient from '../components/Gradient';
 import Menu from '../components/Menu';
 import DescriptionText from '../components/DescriptionText';
 
+import Title from '../components/Title';
 import People from '../components/People';
 import Timeline from '../components/Timeline';
 
@@ -28,9 +29,11 @@ const AboutUsPage = () => {
         <MusaIcon size={18} />
         <DescriptionText />
       </Gradient>
-      
+
+      <Title />
       <People />
-      
+
+      <Title text ='dohi woivw roivoiv eoiv'/>
       <Timeline />
 
 

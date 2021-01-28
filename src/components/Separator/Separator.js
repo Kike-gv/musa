@@ -10,8 +10,6 @@ height: ${props => props.height}rem;
 
 
 const Separator = ({height}) => {
-console.log("🚀 ~ file: Separator.js ~ line 13 ~ Separator ~ height", height)
-
 
     return (
         <SeparatorWrapper height={height}>
