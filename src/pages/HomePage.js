@@ -9,7 +9,7 @@ import CategoriesContainer from '../components/CategoriesContainer';
 import Separator from '../components/Separator';
 
 import CatBranding from '../components/CatBranding';
-import CatInspiracion from '../components/CatInspiracion';
+import CatContent from '../components/CatContent';
 
 import MusaIcon from '../icons/MusaIcon';
 
@@ -19,25 +19,50 @@ import firebase from '../firebase';
 const HomePage = () => {
 
   const [category, setcategory] = useState(0);
-  const [fireB, setfireB] = useState(0);
+  const [categoriesMenu, setCategoriesMenu] = useState();
+  const [categoriesContent, setCategoriesContent] = useState();
+  const [singleCategory, setsingleCategory] = useState();
 
-  // useEffect(() => {
-  //   firebase
-  //     .firestore()
-  //     .collection('times')
-  //     .onSnapshot((snapshot) => {
-  //       const recievedData = snapshot.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data()
-  //       }))
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection('categoriesMenu')
+      .onSnapshot((snapshot) => {
+        const recievedData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
 
-  //       setfireB(recievedData);
-  //     })
-  // }, []) 
-  // console.log("🚀 ~ file: HomePage.js ~ line 35 ~ HomePage ~ fireB", fireB)
+        setCategoriesMenu(recievedData);
+      })
+  }, []);
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection('categoriesContent')
+      .onSnapshot((snapshot) => {
+        const recievedData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+
+        setCategoriesContent(recievedData);
+      })
+  }, []);
+
+  useEffect(() => {
+    if (category !== 0) {
+      const chosenCategory = categoriesContent.filter(item => item.category === category);
+      setsingleCategory(chosenCategory);
+    }
+  }, [category]);
+
+
+
 
   const clickOnCategory = (cat = 0) => {
-    console.log(`entro en ${cat}`); 
+    console.log(`entro en ${cat}`);
     cat === category ? setcategory(0) : setcategory(cat);
   }
 
@@ -49,12 +74,10 @@ const HomePage = () => {
         <DescriptionText />
       </Gradient>
 
-      <CategoriesMenu click={clickOnCategory} />
+      <CategoriesMenu obj={categoriesMenu} click={clickOnCategory} />
 
       {category !== 0 && <CategoriesContainer open>
-        <p>{category}</p>
-        {category === 1 && <CatBranding />}
-        {category === 5 && <CatInspiracion />}
+        <CatContent obj={singleCategory} />
       </CategoriesContainer>}
       <Separator height={10} />
 

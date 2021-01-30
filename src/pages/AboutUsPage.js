@@ -50,10 +50,6 @@ const AboutUsPage = () => {
       })
   }, [])
 
-  const clickOnCategory = (cat = 0) => {
-    console.log(`entro en ${cat}`);
-    cat === category ? setcategory(0) : setcategory(cat);
-  }
 
   return (
     <ThemeProvider theme={theme}>

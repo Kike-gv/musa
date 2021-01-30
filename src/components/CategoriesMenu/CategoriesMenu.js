@@ -9,8 +9,9 @@ import Cat5Text from '../../icons/Cat5Text';
 
 
 
-const logoSize = '15rem';
-const logoTextSize = 15;
+
+const logoTextSize = 13;
+const logoSize = `${logoTextSize}rem`;
 
 const CategoriesWrapper = styled.div`
 width: 100%;
@@ -39,44 +40,49 @@ position: relative;
 width: ${logoSize};
 height: ${logoSize};
 svg{
-fill: ${props =>props.theme.colors.black};
+fill: ${props => props.theme.colors.black};
 transition: fill 0.4s;
     &:hover{
     transition: fill 0.4s;
-    fill: ${props =>props.theme.colors.white};
+    fill: ${props => props.theme.colors.white};
     cursor: pointer;
     }
 };
 `;
 
-const CategoriesMenu = ({click}) => {
+const CategoriesMenu = ({ obj, click }) => {
 
     return (
         <CategoriesWrapper>
 
-            <LogoWrapper onClick={() =>click(1)}>
-                <CategoryImg src={require('../../icons/lila1.png')} />
-                <CategoryText><Cat1Text size={logoTextSize} /></CategoryText>   
+            <LogoWrapper onClick={() => click(1)}>
+                <CategoryImg src={obj && obj[0].bg1} />
+                <CategoryText><Cat1Text size={logoTextSize} /></CategoryText>
             </LogoWrapper>
 
-            <LogoWrapper onClick={() =>click(2)}>
-                <CategoryImg src={require('../../icons/turquesa1.png')} />
-                <CategoryText><Cat2Text size={logoTextSize} /></CategoryText>   
+            <LogoWrapper onClick={() => click(2)}>
+                <CategoryImg src={obj && obj[0].bg2} />
+                <CategoryText><Cat2Text size={logoTextSize} /></CategoryText>
             </LogoWrapper>
 
-            <LogoWrapper onClick={() =>click(3)}>
-                <CategoryImg src={require('../../icons/verd1.png')} />
-                <CategoryText><Cat3Text size={logoTextSize} /></CategoryText>   
+            <LogoWrapper onClick={() => click(3)}>
+                <CategoryImg src={obj && obj[0].bg3} />
+                <CategoryText><Cat3Text size={logoTextSize} /></CategoryText>
             </LogoWrapper>
 
-            <LogoWrapper onClick={() =>click(4)}>
-                <CategoryImg src={require('../../icons/groc1.png')} />
-                <CategoryText><Cat4Text size={logoTextSize} /></CategoryText>   
+            <LogoWrapper onClick={() => click(4)}>
+                <CategoryImg src={obj && obj[0].bg4} />
+                <CategoryText><Cat4Text size={logoTextSize} /></CategoryText>
             </LogoWrapper>
 
-            <LogoWrapper onClick={() =>click(5)}>
-                <CategoryImg src={require('../../icons/rosa1.png')} />
-                <CategoryText><Cat5Text size={logoTextSize} /></CategoryText>   
+            <LogoWrapper onClick={() => click(5)}>
+                <CategoryImg src={obj && obj[0].bg5} />
+                <CategoryText><Cat5Text size={logoTextSize} /></CategoryText>
+            </LogoWrapper>
+
+            <LogoWrapper onClick={() => click(6)}>
+                <CategoryImg src={obj && obj[0].bg6} />
+                <CategoryText><Cat5Text size={logoTextSize} /></CategoryText>
             </LogoWrapper>
 
         </CategoriesWrapper>
