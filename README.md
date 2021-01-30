@@ -2,12 +2,22 @@
 
 
 para deployar en w10, windows powershell con permisos de admin:
+
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 Get-ExecutionPolicy -List
 
-desployas y luego:
+Deployas:
+
+npm run build
+firebase use musa-e80cf
+firebase deploy  
+
+Y luego:
+
 Set-ExecutionPolicy -ExecutionPolicy Undefined
 Get-ExecutionPolicy -List
+
+https://www.youtube.com/watch?v=IDHfvpsYShs
 
 
 
