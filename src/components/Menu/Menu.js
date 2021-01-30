@@ -36,14 +36,18 @@ opacity: 0.9;
 `;
 
 const Menu = () => {
+    const MOBILE_SIZE = 650;
+    const isMobile = window.innerWidth < MOBILE_SIZE;
 
     return (
-        <MenuWrapper>
-            <MenuItem><Link to="/aboutUs"><MenuLink>Quiénes somos</MenuLink></Link></MenuItem>
-            <MenuItem><Link to="/"><MenuLink>Qué ofrecemos</MenuLink></Link></MenuItem>
-            <MenuItem><Link><MenuLink>Trayectoria</MenuLink></Link></MenuItem>
-            <MenuItem><Link to="/"><MenuLink>Contáctanos</MenuLink></Link></MenuItem>
-        </MenuWrapper>
+        <>
+            {!isMobile && <MenuWrapper>
+                <MenuItem><Link to="/aboutUs"><MenuLink>Quiénes somos</MenuLink></Link></MenuItem>
+                <MenuItem><Link to="/"><MenuLink>Qué ofrecemos</MenuLink></Link></MenuItem>
+                <MenuItem><Link><MenuLink>Trayectoria</MenuLink></Link></MenuItem>
+                <MenuItem><Link to="/"><MenuLink>Contáctanos</MenuLink></Link></MenuItem>
+            </MenuWrapper>}
+        </>
     )
 }
 
