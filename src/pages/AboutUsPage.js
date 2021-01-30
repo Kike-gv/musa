@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { ThemeProvider } from 'styled-components';
 import theme from '../theme';
@@ -13,9 +13,42 @@ import Timeline from '../components/Timeline';
 
 import MusaIcon from '../icons/MusaIcon';
 
+import firebase from '../firebase';
+
 const AboutUsPage = () => {
 
   const [category, setcategory] = useState(0);
+
+  const [objTimeline, setObjTimeline] = useState();
+  const [objPeople, setObjPeople] = useState();
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection('timeline')
+      .onSnapshot((snapshot) => {
+        const recievedData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+
+        setObjTimeline(recievedData);
+      })
+  }, [])
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection('people')
+      .onSnapshot((snapshot) => {
+        const recievedData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+
+        setObjPeople(recievedData);
+      })
+  }, [])
 
   const clickOnCategory = (cat = 0) => {
     console.log(`entro en ${cat}`);
@@ -30,11 +63,11 @@ const AboutUsPage = () => {
         <DescriptionText />
       </Gradient>
 
-      <Title />
-      <People />
+      <Title text='Quiénes somos'/>
+      <People obj={objPeople} />
 
-      <Title text ='dohi woivw roivoiv eoiv'/>
-      <Timeline />
+      <Title text='Trayectoria' />
+      <Timeline obj={objTimeline} />
 
 
 

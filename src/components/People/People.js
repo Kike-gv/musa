@@ -15,6 +15,10 @@ align-items: center;
 flex-wrap: wrap;
 `;
 
+const PersonWrapper = styled.div`
+width: ${logoSize}rem;
+`;
+
 const LogoWrapper = styled.div`
 width: ${logoSize}rem;
 height: ${logoSize}rem;
@@ -42,25 +46,45 @@ height: ${peopleSizeHeight}rem;
 object-fit: cover;
 `;
 
+const Name = styled.p`
+padding: 0rem 4rem;
+font-size: ${props => props.theme.fontSizes.medium};
+font-weight: 700;
+letter-spacing: 3px;
+color: ${props => props.theme.colors.text1};
+margin-top: -2rem;
+`;
 
+const Job = styled.p`
+padding: 0rem 4rem;
+font-size: ${props => props.theme.fontSizes.medium};
+color: ${props => props.theme.colors.text1};
+`;
 
-const People = ({ click }) => {
+const Quote = styled.p`
+padding: 0rem 4rem;
+font-size: ${props => props.theme.fontSizes.small};
+color: ${props => props.color};
+`;
 
+const People = ({ obj }) => {
 
-    const imgBG = [require('../../icons/lila1.png'), require('../../icons/turquesa1.png'), require('../../icons/verd1.png'), require('../../icons/groc1.png'), require('../../icons/rosa1.png')];
-    const peopleImg = 'https://static3.abc.es/media/cultura/2018/08/07/rosalia-k98G--620x349@abc.jpg';
+    const peopleObj = obj;
 
-    const peopleObj = [{ bg: imgBG[1], image: peopleImg }, { bg: imgBG[3], image: peopleImg }]
 
     return (
         <PeopleWrapper>
-            {peopleObj.map(item =>
-                <LogoWrapper onClick={() => click(1)}>
-                    <BgImage src={item.bg} />
-                    <PeopleImage src={item.image} />
-                </LogoWrapper>
+            {peopleObj && peopleObj.map(item =>
+                <PersonWrapper>
+                    <LogoWrapper>
+                        <BgImage src={item.bg} />
+                        <PeopleImage src={item.image} />
+                    </LogoWrapper>
+                    <Name>{item.name}</Name>
+                    <Job>{item.job}</Job>
+                    <Quote color={item.color}>{item.quote}</Quote>
+                </PersonWrapper>
             )}
-
         </PeopleWrapper>
     )
 }

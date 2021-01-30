@@ -74,17 +74,13 @@ top: 0.315rem;
 
 
 
-const Timeline = () => {
+const Timeline = ({obj}) => {
 
-    const timelineObj = [
-        { left: false, date: '2019 - 2020', company: 'EXTINCTION REBELLION BCN', jobPosition: 'Dirección de Arte y Diseño Gráfico', id:0 },
-        { left: true, date: '2019', company: 'CAZCARRA IMAGE GROUP', jobPosition: 'Diseño Gráfico y de Producto', id:1 },
-        { left: false, date: '2018', company: 'FUENTES ADVOCATS', jobPosition: 'Diseño Gráfico, Branding', id:2 },
-    ];
+    const timelineObj = obj;
 
     return (
         <TimelineWrapper>
-            {timelineObj.map(item =>
+            {timelineObj && timelineObj.map(item =>
                 <Item key={item.id}>
                     <ItemLeftPart>
                         {item.left && <Date>{item.date}</Date>}

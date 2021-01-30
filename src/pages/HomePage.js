@@ -21,23 +21,23 @@ const HomePage = () => {
   const [category, setcategory] = useState(0);
   const [fireB, setfireB] = useState(0);
 
-  useEffect(() => {
-    firebase
-      .firestore()
-      .collection('times')
-      .onSnapshot((snapshot) => {
-        const recievedData = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data()
-        }))
+  // useEffect(() => {
+  //   firebase
+  //     .firestore()
+  //     .collection('times')
+  //     .onSnapshot((snapshot) => {
+  //       const recievedData = snapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         ...doc.data()
+  //       }))
 
-        setfireB(recievedData);
-      })
-  }, []) 
-  console.log("🚀 ~ file: HomePage.js ~ line 35 ~ HomePage ~ fireB", fireB)
+  //       setfireB(recievedData);
+  //     })
+  // }, []) 
+  // console.log("🚀 ~ file: HomePage.js ~ line 35 ~ HomePage ~ fireB", fireB)
 
   const clickOnCategory = (cat = 0) => {
-    console.log(`entro en ${cat}`);
+    console.log(`entro en ${cat}`); 
     cat === category ? setcategory(0) : setcategory(cat);
   }
 
