@@ -1,6 +1,16 @@
 ![Musa Logo](./previewImages/musaHeader.png)
 
 
+para deployar en w10, windows powershell con permisos de admin:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+Get-ExecutionPolicy -List
+
+desployas y luego:
+Set-ExecutionPolicy -ExecutionPolicy Undefined
+Get-ExecutionPolicy -List
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
