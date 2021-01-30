@@ -10,7 +10,9 @@ import Cat5Text from '../../icons/Cat5Text';
 
 
 
-const logoTextSize = 13;
+const MOBILE_SIZE = 650;
+const isMobile = window.innerWidth < MOBILE_SIZE;
+const logoTextSize = isMobile ? 10 : 13;
 const logoSize = `${logoTextSize}rem`;
 
 const CategoriesWrapper = styled.div`
