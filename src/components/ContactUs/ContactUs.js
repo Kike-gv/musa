@@ -20,11 +20,17 @@ const GridPart = styled.div`
 display: flex;
 justify-content: center;
 flex-wrap: wrap;
+@media (max-width: 650px) {
+    display: block;
+  }
 `;
 
 const Part = styled.div`
 width: 50%;
 padding: 1rem;
+@media (max-width: 650px) {
+    width: 100%;
+  }
 `;
 const PartColumn = styled.div`
 width: 50%;
@@ -32,6 +38,9 @@ padding: 1rem;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
+@media (max-width: 650px) {
+    width: 100%;
+  }
 `;
 const PartInner = styled.div``;
 
@@ -99,7 +108,7 @@ font-weight: bold;
 }
 `;
 
-const ContactUs = () => {
+const ContactUs = ({ isMobile }) => {
     const [input1Response, setinput1Response] = useState();
     const [input2Response, setinput2Response] = useState();
     const [input3Response, setinput3Response] = useState();
@@ -131,7 +140,7 @@ const ContactUs = () => {
     return (
         <ContactUsWrapper>
             <ContactUsComponent>
-                <Gradient direction={'360deg'}>
+                <Gradient direction={'360deg'} height='auto'>
                     <GridPart>
 
                         <PartColumn>
