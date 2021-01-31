@@ -36,7 +36,7 @@ const RRSS = () => {
         <RRSSWrapper>
             {socialMedia.map(media => (
                 <IconWrapper key={media.name} href={media.url} target="_blank">
-                    <FontAwesomeIcons icon={media.icon} color={themeContext.colors.textInverse} />
+                    <FontAwesomeIcons icon={media.icon} color={themeContext.colors.textInverse} isBrand/>
                 </IconWrapper>
             ))}
         </RRSSWrapper>

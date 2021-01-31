@@ -8,10 +8,10 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 library.add(fab, fas);
 
 
-const FontAwesomeIcons = ({ icon, size = 'lg', color }) => {
-
+const FontAwesomeIcons = ({ icon, size = 'lg', color, isBrand = false }) => {
+    const prefix = isBrand ? 'fab': 'fas';
     return (
-        <FontAwesomeIcon icon={['fab', icon]} size={size} color={color} />
+        <FontAwesomeIcon icon={[prefix, icon]} size={size} color={color} />
     )
 }
 
