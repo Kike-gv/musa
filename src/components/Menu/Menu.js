@@ -89,24 +89,16 @@ padding: 1rem;
 font-weight: bold;
 `;
 
-const Menu = ({ isMobile }) => {
+const Menu = ({ isMobile, navigation }) => {
     const themeContext1 = useContext(ThemeContext);
 
     const [isOpen, setIsOpen] = useState(false);
-    const menubj = [
-        { title: 'Quiénes somos', link: '/aboutUs' },
-        { title: 'Qué ofrecemos', link: '/' },
-        { title: 'Trayectoria', link: '/aboutUs' },
-        { title: 'Contáctanos', link: '/' },
-    ]
+    const menubj = navigation;
 
     return (
         <>
             {!isMobile && <MenuWrapper>
-                <MenuItem><Link to={menubj[0].link}><MenuLink>{menubj[0].title}</MenuLink></Link></MenuItem>
-                <MenuItem><Link to={menubj[1].link}><MenuLink>{menubj[1].title}</MenuLink></Link></MenuItem>
-                <MenuItem><Link to={menubj[2].link}><MenuLink>{menubj[2].title}</MenuLink></Link></MenuItem>
-                <MenuItem><Link to={menubj[3].link}><MenuLink>{menubj[3].title}</MenuLink></Link></MenuItem>
+                {navigation && navigation.map(item => <MenuItem><Link to={item.link}><MenuLink>{item.title}</MenuLink></Link></MenuItem>)}
             </MenuWrapper>}
             {isMobile && <MenuWrapperMobile>
                 {!isOpen && <MenuWrapperIcon onClick={() => setIsOpen(true)} ><FontAwesomeIcons icon={'bars'} color={themeContext1.colors.textInverse} /></MenuWrapperIcon>}
@@ -114,10 +106,7 @@ const Menu = ({ isMobile }) => {
                     <MenuWrapperIcon onClick={() => setIsOpen(false)} ><FontAwesomeIcons icon={'times'} color={themeContext1.colors.textInverse} /></MenuWrapperIcon>
 
                     <MenuWrapperMobileLinksList>
-                        <MenuItemMobile><Link to={menubj[0].link}><MenuLink>{menubj[0].title}</MenuLink></Link></MenuItemMobile>
-                        <MenuItemMobile><Link to={menubj[1].link}><MenuLink>{menubj[1].title}</MenuLink></Link></MenuItemMobile>
-                        <MenuItemMobile><Link to={menubj[2].link}><MenuLink>{menubj[2].title}</MenuLink></Link></MenuItemMobile>
-                        <MenuItemMobile><Link to={menubj[3].link}><MenuLink>{menubj[3].title}</MenuLink></Link></MenuItemMobile>
+                        {navigation && navigation.map(item => <MenuItemMobile><Link to={item.link}><MenuLink>{item.title}</MenuLink></Link></MenuItemMobile>)}
                     </MenuWrapperMobileLinksList>
                 </MenuWrapperMobileLinks>}
 

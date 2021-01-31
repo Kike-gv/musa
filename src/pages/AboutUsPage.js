@@ -18,11 +18,25 @@ import firebase from '../firebase';
 
 const AboutUsPage = ({ isMobile }) => {
 
+  const [navigation, setNavigation] = useState();
   const [objTimeline, setObjTimeline] = useState();
   const [objPeople, setObjPeople] = useState();
   const [footer, setFooter] = useState();
 
   useEffect(() => {
+    firebase
+      .firestore()
+      .collection('navigation')
+      .onSnapshot((snapshot) => {
+        const recievedData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+
+        setNavigation(recievedData);
+      });
+
+
     firebase
       .firestore()
       .collection('timeline')
@@ -67,7 +81,7 @@ const AboutUsPage = ({ isMobile }) => {
   return (
     <ThemeProvider theme={theme}>
       <Gradient height='auto'>
-        <Menu isMobile={isMobile} />
+        <Menu isMobile={isMobile} navigation={navigation} />
         <MusaIcon isMobile={isMobile} size={18} />
         <DescriptionText />
       </Gradient>

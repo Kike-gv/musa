@@ -20,6 +20,7 @@ import firebase from '../firebase';
 const HomePage = ({ isMobile }) => {
 
   const [category, setcategory] = useState(0);
+  const [navigation, setNavigation] = useState();
   const [categoriesMenu, setCategoriesMenu] = useState();
   const [categoriesContent, setCategoriesContent] = useState();
   const [singleCategory, setsingleCategory] = useState();
@@ -27,6 +28,19 @@ const HomePage = ({ isMobile }) => {
   const [footer, setFooter] = useState();
 
   useEffect(() => {
+    firebase
+      .firestore()
+      .collection('navigation')
+      .onSnapshot((snapshot) => {
+        const recievedData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+
+        setNavigation(recievedData);
+      });
+
+
     firebase
       .firestore()
       .collection('categoriesMenu')
@@ -98,7 +112,7 @@ const HomePage = ({ isMobile }) => {
   return (
     <>
       <Gradient height='auto'>
-        <Menu isMobile={isMobile} />
+        <Menu isMobile={isMobile} navigation={navigation} />
         <MusaIcon isMobile={isMobile} size={18} />
         <DescriptionText />
       </Gradient>
