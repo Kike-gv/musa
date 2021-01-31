@@ -52,7 +52,7 @@ const HomePage = ({ isMobile }) => {
       })
   }, []);
 
-  
+
   useEffect(() => {
     firebase
       .firestore()
@@ -78,7 +78,6 @@ const HomePage = ({ isMobile }) => {
 
 
   const clickOnCategory = (cat = 0) => {
-    console.log(`entro en ${cat}`);
     cat === category ? setcategory(0) : setcategory(cat);
   }
 
@@ -90,7 +89,7 @@ const HomePage = ({ isMobile }) => {
         <DescriptionText />
       </Gradient>
 
-      <CategoriesMenu isMobile={isMobile} obj={categoriesMenu} click={clickOnCategory} />
+      <CategoriesMenu isMobile={isMobile} obj={categoriesMenu} category={category} click={clickOnCategory} />
 
       {category !== 0 && <CategoriesContainer open>
         <CatContent obj={singleCategory} />
