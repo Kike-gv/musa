@@ -10,6 +10,7 @@ import Separator from '../components/Separator';
 
 import CatBranding from '../components/CatBranding';
 import CatContent from '../components/CatContent';
+import Footer from '../components/Footer';
 
 import MusaIcon from '../icons/MusaIcon';
 
@@ -23,6 +24,7 @@ const HomePage = ({ isMobile }) => {
   const [categoriesContent, setCategoriesContent] = useState();
   const [singleCategory, setsingleCategory] = useState();
   const [rrss, setRrss] = useState();
+  const [footer, setFooter] = useState();
 
   useEffect(() => {
     firebase
@@ -35,10 +37,9 @@ const HomePage = ({ isMobile }) => {
         }))
 
         setCategoriesMenu(recievedData);
-      })
-  }, []);
+      });
 
-  useEffect(() => {
+
     firebase
       .firestore()
       .collection('categoriesContent')
@@ -49,11 +50,9 @@ const HomePage = ({ isMobile }) => {
         }))
 
         setCategoriesContent(recievedData);
-      })
-  }, []);
+      });
 
 
-  useEffect(() => {
     firebase
       .firestore()
       .collection('RRSS')
@@ -64,8 +63,23 @@ const HomePage = ({ isMobile }) => {
         }))
 
         setRrss(recievedData);
-      })
+      });
+
+
+    firebase
+      .firestore()
+      .collection('footer')
+      .onSnapshot((snapshot) => {
+        const recievedData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+
+        setFooter(recievedData);
+      });
+
   }, []);
+
 
   useEffect(() => {
     if (category !== 0) {
@@ -98,6 +112,7 @@ const HomePage = ({ isMobile }) => {
 
       <ContactUs rrss={rrss} />
 
+      <Footer footer={footer} />
     </>
   );
 }

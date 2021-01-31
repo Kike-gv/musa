@@ -10,6 +10,7 @@ import DescriptionText from '../components/DescriptionText';
 import Title from '../components/Title';
 import People from '../components/People';
 import Timeline from '../components/Timeline';
+import Footer from '../components/Footer';
 
 import MusaIcon from '../icons/MusaIcon';
 
@@ -19,6 +20,7 @@ const AboutUsPage = ({ isMobile }) => {
 
   const [objTimeline, setObjTimeline] = useState();
   const [objPeople, setObjPeople] = useState();
+  const [footer, setFooter] = useState();
 
   useEffect(() => {
     firebase
@@ -31,10 +33,9 @@ const AboutUsPage = ({ isMobile }) => {
         }))
 
         setObjTimeline(recievedData);
-      })
-  }, [])
+      });
 
-  useEffect(() => {
+
     firebase
       .firestore()
       .collection('people')
@@ -45,9 +46,23 @@ const AboutUsPage = ({ isMobile }) => {
         }))
 
         setObjPeople(recievedData);
-      })
-  }, [])
+      });
 
+
+    firebase
+      .firestore()
+      .collection('footer')
+      .onSnapshot((snapshot) => {
+        const recievedData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+
+        setFooter(recievedData);
+      });
+
+
+  }, [])
 
   return (
     <ThemeProvider theme={theme}>
@@ -57,14 +72,14 @@ const AboutUsPage = ({ isMobile }) => {
         <DescriptionText />
       </Gradient>
 
-      <Title text='Quiénes somos'/>
+      <Title text='Quiénes somos' />
       <People obj={objPeople} />
 
       <Title text='Trayectoria' />
       <Timeline obj={objTimeline} />
 
 
-
+      <Footer footer={footer} />
     </ThemeProvider>
   );
 }
