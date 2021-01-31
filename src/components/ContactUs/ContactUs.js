@@ -157,7 +157,7 @@ const ContactUs = ({ isMobile }) => {
                         <Part>
                             <FlexLineBetween>
                                 <InputHalf placeholder={contactUsInfo.input1Text} onChange={event => setinput1Response(event.target.value)} />
-                                <InputHalf placeholder={contactUsInfo.input2Text} onChange={event => setinput2Response(event.target.value)} />
+                                <InputHalf placeholder={contactUsInfo.input2Text} onChange={event => setinput2Response(event.target.value)} type="email" />
                             </FlexLineBetween>
                             <InputFull placeholder={contactUsInfo.input3Text} onChange={event => setinput3Response(event.target.value)} />
 
