@@ -108,21 +108,33 @@ font-weight: bold;
 }
 `;
 
-const ContactUs = ({ isMobile }) => {
-    const [input1Response, setinput1Response] = useState();
-    const [input2Response, setinput2Response] = useState();
-    const [input3Response, setinput3Response] = useState();
-    const [input4Response, setinput4Response] = useState();
+const ContactUs = () => {
+    const [input1Response, setinput1Response] = useState('');
+    const [input2Response, setinput2Response] = useState('');
+    const [input3Response, setinput3Response] = useState('');
+    const [input4Response, setinput4Response] = useState('');
+
+    const validacionCampos = () => {
+        const isEmail1 = input2Response.indexOf("@");
+        const isEmail2 = input2Response.indexOf(".");
+        let isEmail = false;
+        if (isEmail1 !== -1 && isEmail2 !== -1) isEmail = true;
+        if (isEmail && input1Response.length !== 0 && input3Response.length !== 0 && input4Response.length !== 0) return true;
+        else return false;
+    }
 
     const sendMail = () => {
-        // window.location = `mailto:musa.inspiram@gmail.com&subject=${input3Response}&body=${input4Response}`;
-
-        const link = "mailto:" + contactUsInfo.emailAdmin
-            + "&subject=" + encodeURIComponent(input3Response)
-            + "&body=" + encodeURIComponent(input4Response)
-            ;
-
-        window.location.href = link;
+        const validation = validacionCampos();
+        if (validation) {
+            const link = "mailto:" + contactUsInfo.emailAdmin
+                + "?subject=" + encodeURIComponent(input1Response) + " - " + encodeURIComponent(input3Response)
+                + "&body=" + encodeURIComponent(input4Response) + "%0D%0A%0D%0A" + encodeURIComponent(input2Response)
+                ;
+            window.location.href = link;
+        }
+        else{
+            alert('Rellena bien los datos porfa!')
+        }
     }
 
     const contactUsInfo = {
@@ -163,7 +175,7 @@ const ContactUs = ({ isMobile }) => {
 
                             <Textarea placeholder={contactUsInfo.input4Text} rows="8" onChange={event => setinput4Response(event.target.value)} />
 
-                            <SendButton type="button" onclick={() => sendMail()} >{contactUsInfo.sendButtonText} </SendButton>
+                            <SendButton type="button" onClick={() => sendMail()} >{contactUsInfo.sendButtonText} </SendButton>
                         </Part>
 
                     </GridPart>
