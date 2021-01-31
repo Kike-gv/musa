@@ -93,14 +93,20 @@ const Menu = ({ isMobile }) => {
     const themeContext1 = useContext(ThemeContext);
 
     const [isOpen, setIsOpen] = useState(false);
+    const menubj = [
+        { title: 'Quiénes somos', link: '/aboutUs' },
+        { title: 'Qué ofrecemos', link: '/' },
+        { title: 'Trayectoria', link: '/aboutUs' },
+        { title: 'Contáctanos', link: '/' },
+    ]
 
     return (
         <>
             {!isMobile && <MenuWrapper>
-                <MenuItem><Link to="/aboutUs"><MenuLink>Quiénes somos</MenuLink></Link></MenuItem>
-                <MenuItem><Link to="/"><MenuLink>Qué ofrecemos</MenuLink></Link></MenuItem>
-                <MenuItem><Link><MenuLink>Trayectoria</MenuLink></Link></MenuItem>
-                <MenuItem><Link to="/"><MenuLink>Contáctanos</MenuLink></Link></MenuItem>
+                <MenuItem><Link to={menubj[0].link}><MenuLink>{menubj[0].title}</MenuLink></Link></MenuItem>
+                <MenuItem><Link to={menubj[1].link}><MenuLink>{menubj[1].title}</MenuLink></Link></MenuItem>
+                <MenuItem><Link to={menubj[2].link}><MenuLink>{menubj[2].title}</MenuLink></Link></MenuItem>
+                <MenuItem><Link to={menubj[3].link}><MenuLink>{menubj[3].title}</MenuLink></Link></MenuItem>
             </MenuWrapper>}
             {isMobile && <MenuWrapperMobile>
                 {!isOpen && <MenuWrapperIcon onClick={() => setIsOpen(true)} ><FontAwesomeIcons icon={'bars'} color={themeContext1.colors.textInverse} /></MenuWrapperIcon>}
@@ -108,10 +114,10 @@ const Menu = ({ isMobile }) => {
                     <MenuWrapperIcon onClick={() => setIsOpen(false)} ><FontAwesomeIcons icon={'times'} color={themeContext1.colors.textInverse} /></MenuWrapperIcon>
 
                     <MenuWrapperMobileLinksList>
-                        <MenuItemMobile><Link to="/aboutUs"><MenuLink>Quiénes somos</MenuLink></Link></MenuItemMobile>
-                        <MenuItemMobile><Link to="/"><MenuLink>Qué ofrecemos</MenuLink></Link></MenuItemMobile>
-                        <MenuItemMobile><Link><MenuLink>Trayectoria</MenuLink></Link></MenuItemMobile>
-                        <MenuItemMobile><Link to="/"><MenuLink>Contáctanos</MenuLink></Link></MenuItemMobile>
+                        <MenuItemMobile><Link to={menubj[0].link}><MenuLink>{menubj[0].title}</MenuLink></Link></MenuItemMobile>
+                        <MenuItemMobile><Link to={menubj[1].link}><MenuLink>{menubj[1].title}</MenuLink></Link></MenuItemMobile>
+                        <MenuItemMobile><Link to={menubj[2].link}><MenuLink>{menubj[2].title}</MenuLink></Link></MenuItemMobile>
+                        <MenuItemMobile><Link to={menubj[3].link}><MenuLink>{menubj[3].title}</MenuLink></Link></MenuItemMobile>
                     </MenuWrapperMobileLinksList>
                 </MenuWrapperMobileLinks>}
 
