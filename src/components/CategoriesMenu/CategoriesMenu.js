@@ -6,6 +6,7 @@ import Cat2Text from '../../icons/Cat2Text';
 import Cat3Text from '../../icons/Cat3Text';
 import Cat4Text from '../../icons/Cat4Text';
 import Cat5Text from '../../icons/Cat5Text';
+import Cat6Text from '../../icons/Cat6Text';
 
 
 
@@ -129,12 +130,12 @@ const CategoriesMenu = ({ isMobile, obj, click, category }) => {
             {category === 0 &&
                 <LogoWrapper logoSize={logoSize} onClick={() => click(6)}>
                     <CategoryImg logoSize={logoSize} src={obj && obj[0].bg6} />
-                    <CategoryText logoSize={logoSize}><Cat5Text size={logoTextSize} /></CategoryText>
+                    <CategoryText logoSize={logoSize}><Cat6Text size={logoTextSize} /></CategoryText>
                 </LogoWrapper>}
             {category === 6 &&
                 <LogoWrapper logoSize={logoSize} onClick={() => click(6)}>
                     <CategoryImg logoSize={logoSize} src={obj && obj[0].bg6} />
-                    <CategoryText logoSize={logoSize}><Cat5Text size={logoTextSize} /></CategoryText>
+                    <CategoryText logoSize={logoSize}><Cat6Text size={logoTextSize} /></CategoryText>
                 </LogoWrapper>}
 
         </CategoriesWrapper>
