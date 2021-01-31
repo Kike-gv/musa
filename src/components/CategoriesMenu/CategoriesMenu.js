@@ -72,67 +72,107 @@ const CategoriesMenu = ({ isMobile, obj, click, category }) => {
     return (
         <CategoriesWrapper>
 
-            {category === 0 &&
+            {/* version desktop */}
+            {!isMobile &&
                 <LogoWrapper logoSize={logoSize} onClick={() => click(1)}>
                     <CategoryImg logoSize={logoSize} src={obj && obj[0].bg1} />
                     <CategoryText logoSize={logoSize}><Cat1Text size={logoTextSize} /></CategoryText>
                 </LogoWrapper>}
-            {category === 1 &&
-                <LogoWrapper logoSize={logoSize} onClick={() => click(1)}>
-                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg1} />
-                    <CategoryText logoSize={logoSize}><Cat1Text size={logoTextSize} /></CategoryText>
-                </LogoWrapper>}
 
-            {category === 0 &&
+            {!isMobile &&
                 <LogoWrapper logoSize={logoSize} onClick={() => click(2)}>
                     <CategoryImg logoSize={logoSize} src={obj && obj[0].bg2} />
                     <CategoryText logoSize={logoSize}><Cat2Text size={logoTextSize} /></CategoryText>
                 </LogoWrapper>}
-            {category === 2 &&
-                <LogoWrapper logoSize={logoSize} onClick={() => click(2)}>
-                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg2} />
-                    <CategoryText logoSize={logoSize}><Cat2Text size={logoTextSize} /></CategoryText>
-                </LogoWrapper>}
-
-            {category === 0 &&
+                
+            {!isMobile &&
                 <LogoWrapper logoSize={logoSize} onClick={() => click(3)}>
                     <CategoryImg logoSize={logoSize} src={obj && obj[0].bg3} />
                     <CategoryText logoSize={logoSize}><Cat3Text size={logoTextSize} /></CategoryText>
                 </LogoWrapper>}
-            {category === 3 &&
-                <LogoWrapper logoSize={logoSize} onClick={() => click(3)}>
-                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg3} />
-                    <CategoryText logoSize={logoSize}><Cat3Text size={logoTextSize} /></CategoryText>
-                </LogoWrapper>}
-
-            {category === 0 &&
+                
+            {!isMobile &&
                 <LogoWrapper logoSize={logoSize} onClick={() => click(4)}>
                     <CategoryImg logoSize={logoSize} src={obj && obj[0].bg4} />
                     <CategoryText logoSize={logoSize}><Cat4Text size={logoTextSize} /></CategoryText>
                 </LogoWrapper>}
-            {category === 4 &&
-                <LogoWrapper logoSize={logoSize} onClick={() => click(4)}>
-                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg4} />
-                    <CategoryText logoSize={logoSize}><Cat4Text size={logoTextSize} /></CategoryText>
-                </LogoWrapper>}
-
-            {category === 0 &&
-                <LogoWrapper logoSize={logoSize} onClick={() => click(5)}>
-                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg5} />
-                    <CategoryText logoSize={logoSize}><Cat5Text size={logoTextSize} /></CategoryText>
-                </LogoWrapper>}
-            {category === 5 &&
+                
+            {!isMobile &&
                 <LogoWrapper logoSize={logoSize} onClick={() => click(5)}>
                     <CategoryImg logoSize={logoSize} src={obj && obj[0].bg5} />
                     <CategoryText logoSize={logoSize}><Cat5Text size={logoTextSize} /></CategoryText>
                 </LogoWrapper>}
 
-            {category === 0 &&
+            {!isMobile &&
                 <LogoWrapper logoSize={logoSize} onClick={() => click(6)}>
                     <CategoryImg logoSize={logoSize} src={obj && obj[0].bg6} />
                     <CategoryText logoSize={logoSize}><Cat6Text size={logoTextSize} /></CategoryText>
                 </LogoWrapper>}
-            {category === 6 &&
+
+
+            {/* version mobil */}
+
+            {isMobile && category === 0 &&
+                <LogoWrapper logoSize={logoSize} onClick={() => click(1)}>
+                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg1} />
+                    <CategoryText logoSize={logoSize}><Cat1Text size={logoTextSize} /></CategoryText>
+                </LogoWrapper>}
+            {isMobile && category === 1 &&
+                <LogoWrapper logoSize={logoSize} onClick={() => click(1)}>
+                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg1} />
+                    <CategoryText logoSize={logoSize}><Cat1Text size={logoTextSize} /></CategoryText>
+                </LogoWrapper>}
+
+            {isMobile && category === 0 &&
+                <LogoWrapper logoSize={logoSize} onClick={() => click(2)}>
+                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg2} />
+                    <CategoryText logoSize={logoSize}><Cat2Text size={logoTextSize} /></CategoryText>
+                </LogoWrapper>}
+            {isMobile && category === 2 &&
+                <LogoWrapper logoSize={logoSize} onClick={() => click(2)}>
+                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg2} />
+                    <CategoryText logoSize={logoSize}><Cat2Text size={logoTextSize} /></CategoryText>
+                </LogoWrapper>}
+
+            {isMobile && category === 0 &&
+                <LogoWrapper logoSize={logoSize} onClick={() => click(3)}>
+                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg3} />
+                    <CategoryText logoSize={logoSize}><Cat3Text size={logoTextSize} /></CategoryText>
+                </LogoWrapper>}
+            {isMobile && category === 3 &&
+                <LogoWrapper logoSize={logoSize} onClick={() => click(3)}>
+                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg3} />
+                    <CategoryText logoSize={logoSize}><Cat3Text size={logoTextSize} /></CategoryText>
+                </LogoWrapper>}
+
+            {isMobile && category === 0 &&
+                <LogoWrapper logoSize={logoSize} onClick={() => click(4)}>
+                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg4} />
+                    <CategoryText logoSize={logoSize}><Cat4Text size={logoTextSize} /></CategoryText>
+                </LogoWrapper>}
+            {isMobile && category === 4 &&
+                <LogoWrapper logoSize={logoSize} onClick={() => click(4)}>
+                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg4} />
+                    <CategoryText logoSize={logoSize}><Cat4Text size={logoTextSize} /></CategoryText>
+                </LogoWrapper>}
+
+            {isMobile && category === 0 &&
+                <LogoWrapper logoSize={logoSize} onClick={() => click(5)}>
+                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg5} />
+                    <CategoryText logoSize={logoSize}><Cat5Text size={logoTextSize} /></CategoryText>
+                </LogoWrapper>}
+            {isMobile && category === 5 &&
+                <LogoWrapper logoSize={logoSize} onClick={() => click(5)}>
+                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg5} />
+                    <CategoryText logoSize={logoSize}><Cat5Text size={logoTextSize} /></CategoryText>
+                </LogoWrapper>}
+
+            {isMobile && category === 0 &&
+                <LogoWrapper logoSize={logoSize} onClick={() => click(6)}>
+                    <CategoryImg logoSize={logoSize} src={obj && obj[0].bg6} />
+                    <CategoryText logoSize={logoSize}><Cat6Text size={logoTextSize} /></CategoryText>
+                </LogoWrapper>}
+            {isMobile && category === 6 &&
                 <LogoWrapper logoSize={logoSize} onClick={() => click(6)}>
                     <CategoryImg logoSize={logoSize} src={obj && obj[0].bg6} />
                     <CategoryText logoSize={logoSize}><Cat6Text size={logoTextSize} /></CategoryText>
