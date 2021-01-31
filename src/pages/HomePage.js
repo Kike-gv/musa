@@ -8,7 +8,7 @@ import ContactUs from '../components/ContactUs';
 import CategoriesContainer from '../components/CategoriesContainer';
 import Separator from '../components/Separator';
 
-import CatBranding from '../components/CatBranding';
+// import CatBranding from '../components/CatBranding';
 import CatContent from '../components/CatContent';
 import Footer from '../components/Footer';
 
@@ -124,6 +124,7 @@ const HomePage = ({ isMobile }) => {
       </CategoriesContainer>}
       <Separator height={10} />
 
+      <div id="contact"/>
       <ContactUs rrss={rrss} />
 
       <Footer footer={footer} />

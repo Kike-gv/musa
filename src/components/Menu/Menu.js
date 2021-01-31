@@ -3,12 +3,13 @@ import styled, { ThemeContext } from 'styled-components';
 
 import FontAwesomeIcons from '../FontAwesomeIcons';
 
-import {
-    // BrowserRouter as Router,
-    // Switch,
-    // Route,
-    Link
-} from "react-router-dom";
+// import {
+//     // BrowserRouter as Router,
+//     // Switch,
+//     // Route,
+//     Link
+// } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 
 
 const MenuWrapper = styled.ul`
@@ -93,7 +94,6 @@ const Menu = ({ isMobile, navigation }) => {
     const themeContext1 = useContext(ThemeContext);
 
     const [isOpen, setIsOpen] = useState(false);
-    const menubj = navigation;
 
     return (
         <>

@@ -89,6 +89,7 @@ const AboutUsPage = ({ isMobile }) => {
       <Title text='Quiénes somos' />
       <People obj={objPeople} />
 
+      <div id="timeline"/>
       <Title text='Trayectoria' />
       <Timeline obj={objTimeline} />
 

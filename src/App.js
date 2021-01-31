@@ -7,10 +7,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
-import firebase from './firebase';
+// import firebase from './firebase';
 
 import HomePage from './pages/HomePage';
 import AboutUsPage from './pages/AboutUsPage';
@@ -31,12 +30,15 @@ function App() {
     setIsMobile(window.innerWidth < MOBILE_SIZE);
   };
 
+  // const { pathname } = useLocation();
+
 
   return (
     <Router>
       <ThemeProvider theme={theme}>
 
         <Switch>
+          {/* <Redirect from="/:url*(/+)" to={pathname.slice(0, -1)} /> */}
           <Route exact path="/">
             <HomePage isMobile={isMobile} />
           </Route>
