@@ -22,6 +22,7 @@ const HomePage = ({ isMobile }) => {
   const [categoriesMenu, setCategoriesMenu] = useState();
   const [categoriesContent, setCategoriesContent] = useState();
   const [singleCategory, setsingleCategory] = useState();
+  const [rrss, setRrss] = useState();
 
   useEffect(() => {
     firebase
@@ -48,6 +49,21 @@ const HomePage = ({ isMobile }) => {
         }))
 
         setCategoriesContent(recievedData);
+      })
+  }, []);
+
+  
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection('RRSS')
+      .onSnapshot((snapshot) => {
+        const recievedData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+
+        setRrss(recievedData);
       })
   }, []);
 
@@ -81,7 +97,7 @@ const HomePage = ({ isMobile }) => {
       </CategoriesContainer>}
       <Separator height={10} />
 
-      <ContactUs />
+      <ContactUs rrss={rrss} />
 
     </>
   );

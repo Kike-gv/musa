@@ -108,7 +108,7 @@ font-weight: bold;
 }
 `;
 
-const ContactUs = () => {
+const ContactUs = ({rrss}) => {
     const [input1Response, setinput1Response] = useState('');
     const [input2Response, setinput2Response] = useState('');
     const [input3Response, setinput3Response] = useState('');
@@ -162,7 +162,7 @@ const ContactUs = () => {
                                 <Text>{contactUsInfo.text2}</Text>
                             </PartInner>
                             <RRSSWrapper>
-                                <RRSS />
+                                <RRSS rrss={rrss}/>
                             </RRSSWrapper>
                         </PartColumn>
 

@@ -13,28 +13,14 @@ const IconWrapper = styled.a`
 margin-right: 1rem;
 `;
 
-const RRSS = () => {
+const RRSS = ({rrss}) => {
     const themeContext = useContext(ThemeContext);
-    const socialMedia = [
-        {
-            name: 'facebook',
-            icon: 'facebook-f',
-            url: 'https://www.facebook.com',
-        }, {
-            name: 'youtube',
-            icon: 'youtube',
-            url: 'https://www.youtube.com',
-        }, {
-            name: 'twitter',
-            icon: 'twitter',
-            url: 'https://www.twitter.com',
-        }
-    ]
+    const socialMedia = rrss;
 
 
     return (
         <RRSSWrapper>
-            {socialMedia.map(media => (
+            {socialMedia && socialMedia.map(media => (
                 <IconWrapper key={media.name} href={media.url} target="_blank">
                     <FontAwesomeIcons icon={media.icon} color={themeContext.colors.textInverse} isBrand/>
                 </IconWrapper>
