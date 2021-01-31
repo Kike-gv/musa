@@ -8,6 +8,7 @@ export default {
         themeGrad4: 'rgba(255, 255, 255, 0)',
         blue1: '#020b30',
         blue2: '#00527f',
+        blue3: '#9ebad7',
 
         text1: '#383838',
         text2: '#747474',

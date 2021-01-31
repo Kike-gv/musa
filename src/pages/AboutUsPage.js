@@ -19,6 +19,7 @@ import firebase from '../firebase';
 const AboutUsPage = ({ isMobile }) => {
 
   const [navigation, setNavigation] = useState();
+  const [intro, setIntro] = useState();
   const [objTimeline, setObjTimeline] = useState();
   const [objPeople, setObjPeople] = useState();
   const [footer, setFooter] = useState();
@@ -34,6 +35,19 @@ const AboutUsPage = ({ isMobile }) => {
         }))
 
         setNavigation(recievedData);
+      });
+
+
+    firebase
+      .firestore()
+      .collection('intro')
+      .onSnapshot((snapshot) => {
+        const recievedData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+
+        setIntro(recievedData);
       });
 
 
@@ -83,13 +97,13 @@ const AboutUsPage = ({ isMobile }) => {
       <Gradient height='auto'>
         <Menu isMobile={isMobile} navigation={navigation} />
         <MusaIcon isMobile={isMobile} size={18} />
-        <DescriptionText />
+        <DescriptionText intro={intro} />
       </Gradient>
 
       <Title text='Quiénes somos' />
       <People obj={objPeople} />
 
-      <div id="timeline"/>
+      <div id="timeline" />
       <Title text='Trayectoria' />
       <Timeline obj={objTimeline} />
 

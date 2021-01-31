@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Gradient from '../components/Gradient';
 import Menu from '../components/Menu';
 import DescriptionText from '../components/DescriptionText';
+import IntroText from '../components/IntroText';
 import CategoriesMenu from '../components/CategoriesMenu';
 import ContactUs from '../components/ContactUs';
 import CategoriesContainer from '../components/CategoriesContainer';
@@ -21,6 +22,7 @@ const HomePage = ({ isMobile }) => {
 
   const [category, setcategory] = useState(0);
   const [navigation, setNavigation] = useState();
+  const [intro, setIntro] = useState();
   const [categoriesMenu, setCategoriesMenu] = useState();
   const [categoriesContent, setCategoriesContent] = useState();
   const [singleCategory, setsingleCategory] = useState();
@@ -38,6 +40,19 @@ const HomePage = ({ isMobile }) => {
         }))
 
         setNavigation(recievedData);
+      });
+
+
+    firebase
+      .firestore()
+      .collection('intro')
+      .onSnapshot((snapshot) => {
+        const recievedData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+
+        setIntro(recievedData);
       });
 
 
@@ -114,8 +129,10 @@ const HomePage = ({ isMobile }) => {
       <Gradient height='auto'>
         <Menu isMobile={isMobile} navigation={navigation} />
         <MusaIcon isMobile={isMobile} size={18} />
-        <DescriptionText />
+        <DescriptionText intro={intro} />
       </Gradient>
+
+      <IntroText intro={intro}/>
 
       <CategoriesMenu isMobile={isMobile} obj={categoriesMenu} category={category} click={clickOnCategory} />
 
@@ -124,7 +141,7 @@ const HomePage = ({ isMobile }) => {
       </CategoriesContainer>}
       <Separator height={10} />
 
-      <div id="contact"/>
+      <div id="contact" />
       <ContactUs rrss={rrss} />
 
       <Footer footer={footer} />
