@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -36,8 +36,11 @@ opacity: 0.9;
 `;
 
 const Menu = () => {
+    const [isMobile, setIsMobile] = useState();
     const MOBILE_SIZE = 650;
-    const isMobile = window.innerWidth < MOBILE_SIZE;
+    window.onresize = function (e) {
+        setIsMobile(window.innerWidth < MOBILE_SIZE);
+    };
 
     return (
         <>
@@ -47,6 +50,7 @@ const Menu = () => {
                 <MenuItem><Link><MenuLink>Trayectoria</MenuLink></Link></MenuItem>
                 <MenuItem><Link to="/"><MenuLink>Contáctanos</MenuLink></Link></MenuItem>
             </MenuWrapper>}
+            {isMobile}
         </>
     )
 }
