@@ -35,12 +35,8 @@ opacity: 0.9;
 }
 `;
 
-const Menu = () => {
-    const [isMobile, setIsMobile] = useState();
-    const MOBILE_SIZE = 650;
-    window.onresize = function (e) {
-        setIsMobile(window.innerWidth < MOBILE_SIZE);
-    };
+const Menu = ({isMobile}) => {
+    
 
     return (
         <>

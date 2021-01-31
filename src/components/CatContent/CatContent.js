@@ -19,7 +19,6 @@ width: 100%;
 
 
 const CatContent = ({ obj }) => {
-console.log("🚀 ~ file: CatContent.js ~ line 22 ~ CatContent ~ obj", obj)
 const obj_exists = obj && obj[0];
 
     return (

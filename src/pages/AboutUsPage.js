@@ -15,9 +15,7 @@ import MusaIcon from '../icons/MusaIcon';
 
 import firebase from '../firebase';
 
-const AboutUsPage = () => {
-
-  const [category, setcategory] = useState(0);
+const AboutUsPage = ({ isMobile }) => {
 
   const [objTimeline, setObjTimeline] = useState();
   const [objPeople, setObjPeople] = useState();
@@ -53,9 +51,9 @@ const AboutUsPage = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Gradient>
-        <Menu />
-        <MusaIcon size={18} />
+      <Gradient height='auto'>
+        <Menu isMobile={isMobile} />
+        <MusaIcon isMobile={isMobile} size={18} />
         <DescriptionText />
       </Gradient>
 

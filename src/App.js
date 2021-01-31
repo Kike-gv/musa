@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
@@ -25,17 +25,23 @@ import AboutUsPage from './pages/AboutUsPage';
 
 function App() {
 
+  const MOBILE_SIZE = 650;
+  const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_SIZE);
+  window.onresize = function (e) {
+    setIsMobile(window.innerWidth < MOBILE_SIZE);
+  };
+
 
   return (
     <Router>
       <ThemeProvider theme={theme}>
-        
+
         <Switch>
           <Route exact path="/">
-            <HomePage />
+            <HomePage isMobile={isMobile} />
           </Route>
           <Route path="/aboutUs">
-            <AboutUsPage />
+            <AboutUsPage isMobile={isMobile} />
           </Route>
         </Switch>
 

@@ -1,12 +1,10 @@
 import React from 'react';
 
-const MusaIcon = ({ size = 2, fill = '#ffffff' }) => {
+const MusaIcon = ({ isMobile, size = 2, fill = '#ffffff' }) => {
 
   const height = size + 'rem';
   const width = size * 2 + 'rem';
-  const MOBILE_SIZE = 650;
-  const isMobile = window.innerWidth < MOBILE_SIZE;
-  
+
   return (
     <svg
       className="addRemove-icon"

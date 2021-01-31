@@ -16,7 +16,7 @@ import MusaIcon from '../icons/MusaIcon';
 import firebase from '../firebase';
 
 
-const HomePage = () => {
+const HomePage = ({ isMobile }) => {
 
   const [category, setcategory] = useState(0);
   const [categoriesMenu, setCategoriesMenu] = useState();
@@ -68,13 +68,13 @@ const HomePage = () => {
 
   return (
     <>
-      <Gradient>
-        <Menu />
-        <MusaIcon size={18} />
+      <Gradient height='auto'>
+        <Menu isMobile={isMobile} />
+        <MusaIcon isMobile={isMobile} size={18} />
         <DescriptionText />
       </Gradient>
 
-      <CategoriesMenu obj={categoriesMenu} click={clickOnCategory} />
+      <CategoriesMenu isMobile={isMobile} obj={categoriesMenu} click={clickOnCategory} />
 
       {category !== 0 && <CategoriesContainer open>
         <CatContent obj={singleCategory} />
